@@ -1,13 +1,20 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-KvM/7uRAgViO/3W4FDK8vDJ9rQ3/QCdmu81X/Qw0tfbIo3/vUVKT5O3+Cm3lkB2J9gp3dg9qwEt3d2D0Bc1wDg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <title>IQO</title>
-    <link rel="icon" type="image/png" href="{{ asset('images/logoIQO.png') }}">
+<link rel="icon" type="image/png" href="{{ asset('images/logoIQO.png') }}">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 <style>
+    body {
+        background: linear-gradient(to left, #3931af, #ffffff);
+        background-image: url("/images/fondo1.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
     .register {
-        background: -webkit-linear-gradient(left, #3931af, #00c6ff);
         margin-top: 3%;
         padding: 3%;
     }
@@ -129,11 +136,19 @@
 <div class="container register">
     <div class="row">
         <div class="col-md-3 register-left">
-        <img src="{{ asset('images/fondo1') }}" alt="Descripción de la imagen" />
+            <img src="{{ asset('logo/logoIQOfondo.PNG') }}" alt="Descripción de la imagen" style="width: 200px; height: auto;" />
+
+
 
             <h3>Bienvenidos</h3>
             <p>Aquí puedes comprar productos de calidad de seguridad para tu hogar, empresa, etc...</p>
-            <button type="submit" name="" value="Iniciar Sesion"><i class="fa-regular fa-right-to-bracket fa-lg"></i> Iniciar Sesión</button><br />
+            <a href="{{ url('/home') }}" class="btn btn-primary">
+                <i class="fa-regular fa-right-to-bracket fa-lg"></i> Iniciar Sesión
+            </a><br />
+
+
+
+
         </div>
 
         <div class="col-md-9 register-right">
@@ -153,7 +168,7 @@
                         <div class="row register-form">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input placeholder="Primer Nombre" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    <input placeholder="Primer Nombre" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus pattern="[^\s]+">
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -161,7 +176,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <input placeholder="Segundo Nombre" id="second_name" type="text" class="form-control @error('second_name') is-invalid @enderror" name="second_name" value="{{ old('second_name') }}" required autocomplete="second_name">
+                                    <input placeholder="Segundo Nombre" id="second_name" type="text" class="form-control @error('second_name') is-invalid @enderror" name="second_name" value="{{ old('second_name') }}" required autocomplete="second_name" pattern="[^\s]+">
                                     @error('second_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -169,7 +184,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <input placeholder="Primer Apellido" id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name">
+                                    <input placeholder="Primer Apellido" id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" pattern="[^\s]+">
                                     @error('last_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -177,26 +192,27 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <input placeholder="Segundo Apellido" id="second_last_name" type="text" class="form-control @error('second_last_name') is-invalid @enderror" name="second_last_name" value="{{ old('second_last_name') }}" required autocomplete="second_last_name">
+                                    <input placeholder="Segundo Apellido" id="second_last_name" type="text" class="form-control @error('second_last_name') is-invalid @enderror" name="second_last_name" value="{{ old('second_last_name') }}" required autocomplete="second_last_name" pattern="[^\s]+">
                                     @error('second_last_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
                                 </div>
+
                                 <div class="form-group">
                                     <div class="input-group">
                                         <input placeholder="Contraseña" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-secondary reveal-password" type="button"><i class="fas fa-eye">Ver</i></button>
                                             @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group">
